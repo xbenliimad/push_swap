@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    swap(t_list **stack)
+void    ft_swap(t_list **stack)
 {
     t_list *second_node;
     t_list *first_node;

@@ -4,40 +4,40 @@ SRC= ${wildcard ./src/*.c}  ${wildcard ./src/**/*.c}
 
 OBJ=$(SRC:%.c=%.o)
 
-INCLUDES= -I./includes -I./libft -I./get-next-line -I./ft_printf
+INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf
 
-FLAGS= -Wall -Wextra -Werror -fsanitize=address $(INCLUDES)
+FLAGS= -Wall -Wextra -Werror $(INCLUDES) #-fsanitize=address $(INCLUDES)
 
 CC= cc
 
 %.o:%.c
 	$(CC) $(FLAGS) -c $^ -o $@
 
-./libft/libft.a : 
-	make -C ./libft  bonus
+./utils/libft/libft.a : 
+	make -C ./utils/libft  bonus
 
-./ft_printf/libftprintf.a :
-	make -C ./ft_printf
+./utils/ft_printf/libftprintf.a :
+	make -C ./utils/ft_printf
 
-./get-next-line/get_next_line.a :
-	make -C ./get-next-line
+./utils/get-next-line/get_next_line.a :
+	make -C ./utils/get-next-line
 
 all : $(NAME) 
 
-$(NAME) : $(OBJ) ./libft/libft.a ./ft_printf/libftprintf.a ./get-next-line/get_next_line.a
+$(NAME) : $(OBJ) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
 	$(CC) $(FLAGS) $^ -o $@
 
 clean :
 	rm -f $(OBJ)
-	make -C ./libft clean
-	make -C ./ft_printf clean
-	make -C ./get-next-line clean
+	make -C ./utils/libft clean
+	make -C ./utils/ft_printf clean
+	make -C ./utils/get-next-line clean
 
 fclean : clean
 	rm -f $(NAME)
-	make -C ./libft fclean
-	make -C ./ft_printf fclean
-	make -C ./get-next-line fclean
+	make -C ./utils/libft fclean
+	make -C ./utils/ft_printf fclean
+	make -C ./utils/get-next-line fclean
 
 re : fclean all
 
