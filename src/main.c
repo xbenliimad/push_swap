@@ -10,11 +10,11 @@ int main(int ac, char **av)
     ft_rotate(&stacks.a);
     ft_printf("Stack a:\n");
     i = 0;
-    while((stacks.a)[i])
+    while(stacks.a)
     {
         printf("%d\n", *(int *) stacks.a->content);
         stacks.a = stacks.a->next; 
     }
-    system("leaks push_swap");
+    // system("leaks push_swap");
     return (0);
 }
