@@ -2,19 +2,15 @@
 
 int main(int ac, char **av)
 {
-    t_stacks    stacks;
+    t_list  *a;
+    t_list  *b;
+    int  *sorted;
     int     i;
 
-    ft_bzero(&stacks, sizeof(t_stacks));
-    parse_input(ac, av, &stacks);
-    ft_rotate(&stacks.a);
-    ft_printf("Stack a:\n");
-    i = 0;
-    while(stacks.a)
-    {
-        printf("%d\n", *(int *) stacks.a->content);
-        stacks.a = stacks.a->next; 
-    }
+    a = NULL;
+    parse_input(ac, av, &a);
+    sorted = ft_bubble_sort(a);
+    ft_handle_sorting(a, b, sorted);
     // system("leaks push_swap");
     return (0);
 }

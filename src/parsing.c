@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-void    parse_input(int ac, char **av, t_stacks *stacks)
+void    parse_input(int ac, char **av, t_list **stack)
 {
     t_list      *tmp_node;
     int         *tmp_nbr;
@@ -17,6 +17,6 @@ void    parse_input(int ac, char **av, t_stacks *stacks)
         tmp_node = ft_lstnew(tmp_nbr);
         if (!tmp_node)
             return ;
-        ft_lstadd_back(&stacks->a, tmp_node);
+        ft_lstadd_back(stack, tmp_node);
     }
 }
