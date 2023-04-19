@@ -12,6 +12,7 @@ void    ft_swap(t_list **stack);
 void	ft_push(t_list **from, t_list **target);
 void	ft_rotate(t_list **stack);
 void	ft_rrotate(t_list **stack);
-int *ft_bubble_sort(t_list *stack);
+int		*ft_bubble_sort(t_list *stack);
+void	ft_handle_sorting(t_list *a, t_list *b, int *sorted_ref);
 
 # endif
