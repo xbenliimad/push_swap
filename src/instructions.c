@@ -10,7 +10,8 @@ void	ft_push(t_list **src, t_list **dest, char *cmd)
 	*src = (*src)->next;
 	tmp->next = *dest;
 	*dest = tmp;
-	ft_printf("%s\n", cmd);
+	if(cmd)
+		ft_printf("%s\n", cmd);
 }
 
 void	ft_rotate(t_list **stack, char *cmd)
@@ -25,7 +26,8 @@ void	ft_rotate(t_list **stack, char *cmd)
 	tmp->next = NULL;
 	last = ft_lstlast(*stack);
 	last->next = tmp;
-	ft_printf("%s\n", cmd);
+	if(cmd)
+		ft_printf("%s\n", cmd);
 }
 
 void	ft_rrotate(t_list **stack, char *cmd)
@@ -42,7 +44,8 @@ void	ft_rrotate(t_list **stack, char *cmd)
 	before_last->next = NULL;
 	last->next = *stack;
 	*stack = last;
-	ft_printf("%s\n", cmd);
+	if(cmd)
+		ft_printf("%s\n", cmd);
 }
 
 void    ft_swap(t_list **stack, char *cmd)
@@ -57,5 +60,6 @@ void    ft_swap(t_list **stack, char *cmd)
     first_node->next = second_node->next;
     second_node->next = first_node;
     (*stack) = second_node;
-	ft_printf("%s\n", cmd);
+	if(cmd)
+		ft_printf("%s\n", cmd);
 }
