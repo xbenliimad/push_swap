@@ -11,11 +11,7 @@ int main(int ac, char **av)
     b = NULL;
     parse_input(ac, av, &a);
     lis = ft_lis_finder(a);
-    while(i < lis[0])
-    {
-        printf("%d\n", lis[i + 1]);
-        i++;
-    }
+    
     system("leaks push_swap");
     return (0);
 }
