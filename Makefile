@@ -13,6 +13,12 @@ CC= cc
 %.o:%.c
 	$(CC) $(FLAGS) -c $^ -o $@
 
+
+all : $(NAME) 
+
+$(NAME) : $(OBJ) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
+	$(CC) $(FLAGS) $^ -o $@
+
 ./utils/libft/libft.a : 
 	make -C ./utils/libft  bonus
 
@@ -21,11 +27,6 @@ CC= cc
 
 ./utils/get-next-line/get_next_line.a :
 	make -C ./utils/get-next-line
-
-all : $(NAME) 
-
-$(NAME) : $(OBJ) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
-	$(CC) $(FLAGS) $^ -o $@
 
 clean :
 	rm -f $(OBJ)
