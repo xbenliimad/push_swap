@@ -12,7 +12,6 @@ void    ft_swap(t_list **stack, char *cmd);
 void	ft_push(t_list **from, t_list **target, char *cmd);
 void	ft_rotate(t_list **stack, char *cmd);
 void	ft_rrotate(t_list **stack, char *cmd);
-void	ft_handle_sorting(t_list *a, t_list *b, int *sorted_ref);
 int     *ft_lis_finder(t_list *stack);
 
 void    ft_push_nonlis(t_list **a, t_list **b, int *lis);
@@ -27,10 +26,16 @@ t_list *ft_go_to_index(t_list *list, int index);
 // clearing functions
 void    ft_clear(void *content);
 
+// Handling sorting
+void	ft_handle_instructions(t_list **a, t_list **b, char *cmd);
+void	ft_sort_stack(t_list **a, t_list **b);
+
 // struckt for min max of stack
-typedef t_list s_stack {
-    int *min;
-    int *max;
-} t_stack;
+typedef struct s_stack_info  {
+    int min;
+    int max;
+    int len;
+    int min_index;
+} t_stack_info;
 
 # endif
