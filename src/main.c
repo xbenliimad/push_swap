@@ -17,6 +17,7 @@ int	main(int ac, char **av)
 	ft_push_nonlis(&a, &b, lis);
 	free(lis);
 	ft_sort_stack(&a, &b);
+
 	// while (a)
 	// {
 	// 	ft_printf("a : %d\n", *(int *)(a->content));

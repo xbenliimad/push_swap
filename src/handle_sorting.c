@@ -27,8 +27,8 @@ void    ft_push_nonlis(t_list **a, t_list **b, int *lis)
         {
             ft_push(a, b, "pb");
             i++;
-            continue ;
-        }    
-        ft_rotate(a, "ra");
+        }
+        else
+            ft_rotate(a, "ra");
     }
 }

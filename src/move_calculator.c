@@ -31,7 +31,7 @@ int	ft_best_move_b(int b_size, int index)
 	if (index <= b_size - index)
 		b_move = index;
 	else
-		b_move = b_size - index;
+		b_move = -(b_size - index);
 	return (b_move);
 }
 
@@ -85,7 +85,6 @@ int ft_best_move_a(t_list *a, t_stack_info *a_info,int value)
 		a = a->next;
 		a_index++;
     }
-
 	if (find_max)
 	{
 		if (a_index + 1 <= (a_info->len - (a_index + 1)))
@@ -112,23 +111,6 @@ int	ft_abs(int value)
 	return (-(value));
 }
 
-// int	ft_check_best_move(int best_move[2])
-// {
-// 	int	total_moves;
-
-// 	total_moves = 0;
-// 	if ((best_move[0] * best_move[1]) < 0)
-// 		total_moves = ft_abs(best_move[0]) + ft_abs(best_move[1]);
-// 	else
-// 	{
-// 		if (ft_abs(best_move[0] > ft_abs(best_move[1])))
-// 			total_moves =  ft_abs(best_move[0]);
-// 		else
-// 			total_moves = ft_abs(best_move[1]);
-// 	}
-// 	return (total_moves);
-// }
-
 void	ft_move_calculator(t_list **a, t_list **b, t_stack_info *a_info, int best_move[2])
 {
 	int		b_index;
@@ -151,6 +133,7 @@ void	ft_move_calculator(t_list **a, t_list **b, t_stack_info *a_info, int best_m
 			best_move[1] = tmp_move[1];
 		}	
 		head = head->next;
+		b_index++;
 	}
 }
 
@@ -243,5 +226,4 @@ void	ft_sort_stack(t_list **a, t_list **b)
 		ft_get_info(*a, &a_info);
 	}
 	ft_handle_final_rotations(a, b, &a_info);
-	ft_print_stack(*a, "a");
 }
