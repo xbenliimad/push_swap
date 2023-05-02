@@ -6,7 +6,7 @@ OBJ=$(SRC:%.c=%.o)
 
 INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf
 
-FLAGS= -Wall -Wextra -Werror  $(INCLUDES) #-fsanitize=address
+FLAGS= -Wall -Wextra -Werror -fsanitize=address $(INCLUDES)
 
 CC= cc
 

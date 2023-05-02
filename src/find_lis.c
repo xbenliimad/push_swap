@@ -72,7 +72,6 @@ int	*ft_find_lis(t_list *stack)
 	{
 		tmp = *(int *)stack->content;
 		ft_handle_lis(&res, tmp);
-		// debug(res);
 		stack = stack->next;
 	}
 	lis = ft_list_to_int(ft_lstlast(res)->content);
