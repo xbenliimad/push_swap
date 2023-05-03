@@ -6,11 +6,12 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 21:43:39 by ibenli            #+#    #+#             */
-/*   Updated: 2022/11/06 06:23:35 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/05/03 02:17:44 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdint.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {

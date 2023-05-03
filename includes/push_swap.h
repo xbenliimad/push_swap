@@ -15,12 +15,13 @@ typedef struct s_stack_info  {
 } t_stack_info;
 
 // Main instructions
-void    parse_input(int ac, char **av, t_list **stack);
+void    ft_parse_input(int ac, char **av, t_list **stack);
 void    ft_swap(t_list **stack, char *cmd);
 void	ft_push(t_list **from, t_list **target, char *cmd);
 void	ft_rotate(t_list **stack, char *cmd);
 void	ft_rrotate(t_list **stack, char *cmd);
 int     *ft_lis_finder(t_list *stack);
+void    ft_handle_small(t_list **a, t_list **b);
 
 void    ft_push_nonlis(t_list **a, t_list **b, int *lis);
 
@@ -45,5 +46,7 @@ void	ft_get_info(t_list *a, t_stack_info *a_info);
 int	    ft_abs(int value);
 void    ft_clear(void *content);
 void	ft_free_double_array(char **ptr);
+void	ft_error(void);
+void	ft_check_valid_input(char *str, int index);
 
 # endif

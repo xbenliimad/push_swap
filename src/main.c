@@ -5,24 +5,22 @@ int	main(int ac, char **av)
 	t_list *a;
 	t_list *b;
 	int *lis;
-	int i;
 
-	i = 1;
 	a = NULL;
 	b = NULL;
 	if (ac >= 2)
 	{
-		parse_input(ac, av, &a);
-		lis = ft_lis_finder(a);
-		ft_push_nonlis(&a, &b, lis);
-		free(lis);
-		ft_sort_stack(&a, &b);
-		while (a)
+		ft_parse_input(ac, av, &a);
+		if (ft_lstsize(a) == 3)
+			ft_handle_small(&a, &b);
+		else
 		{
-			ft_printf("a : %d\n", *(int *) a->content);
-			a = a->next;
+			lis = ft_lis_finder(a);
+			ft_push_nonlis(&a, &b, lis);
+			free(lis);
+			ft_sort_stack(&a, &b);
+			ft_lstclear(&a, free);
 		}
-		ft_lstclear(&a, free);
 	}
 	// system("leaks push_swap");
 	return (0);

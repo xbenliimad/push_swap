@@ -1,15 +1,6 @@
 
 #include "push_swap.h"
 
-static void	ft_check_valid_input(char *str, int i)
-{
-	if ((str[i] && !ft_isdigit(str[i])) || ((str[i - 1] == '-' || str[i - 1] == '+') && !str[i]))
-	{
-		ft_printf("Error\n");
-		exit(0);
-	}
-}
-
 static int	ft_custom_atoi(char *str)
 {
 	int		i;
@@ -39,8 +30,42 @@ static int	ft_custom_atoi(char *str)
 	return (result * sign);
 }
 
+void	ft_check_duplicate(t_list **stack, int content)
+{
+	t_list *head;
 
-void	parse_input(int ac, char **av, t_list **stack)
+	head = *stack;
+	while (head)
+	{
+		if (*(int *)head->content == content)
+			ft_error();
+		head = head->next;
+	}
+}
+
+void	ft_check_sorted(t_list **stack)
+{
+	t_list *v_stack;
+	t_list	*head;
+
+	if (!*stack)
+		ft_error();
+	v_stack = ft_dup_stack(*stack);
+	head = v_stack;
+	while(v_stack->next)
+	{
+		if (*(int *)v_stack->content > *(int *)v_stack->next->content)
+		{
+			ft_lstclear(&head, free);
+			free(head);
+			return ;
+		}
+		v_stack = v_stack->next;
+	}
+	exit(0);
+}
+
+static void	ft_handle_parsing(int ac, char **av, t_list **stack)
 {
 	t_list *tmp_node;
 	char **split_numbers;
@@ -62,9 +87,18 @@ void	parse_input(int ac, char **av, t_list **stack)
 			tmp_node = ft_lstnew(tmp_nbr);
 			if (!tmp_node)
 				return ;
+			ft_check_duplicate(stack, *(int *)tmp_node->content);
 			ft_lstadd_back(stack, tmp_node);
 			j++;
 		}
 		ft_free_double_array(split_numbers);
 	}
+}
+
+void	ft_parse_input(int ac, char **av, t_list **stack)
+{
+	if ((ft_strncmp(av[1], " ", 1) && !av[1][0]))
+		ft_error();
+	ft_handle_parsing(ac, av, stack);
+	ft_check_sorted(stack);
 }

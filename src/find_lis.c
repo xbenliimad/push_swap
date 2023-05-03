@@ -85,12 +85,10 @@ int	*ft_lis_finder(t_list *stack)
 	int *lis[2];
 	int *tmp;
 	int stack_size;
-	int longest_len;
 
 	stack_size = ft_lstsize(stack);
 	tmp_stack = ft_dup_stack(stack);
 	lis[0] = ft_find_lis(tmp_stack);
-	longest_len = lis[0][0];
 	ft_rotate(&tmp_stack, NULL);
 	while (--stack_size)
 	{

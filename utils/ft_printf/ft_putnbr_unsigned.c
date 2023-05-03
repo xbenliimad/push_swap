@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 15:32:16 by ibenli            #+#    #+#             */
-/*   Updated: 2022/11/12 17:28:02 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/05/03 02:17:55 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_putnbr_unsigned(unsigned int n)
 		n_c += ft_putnbr_unsigned(n / 10);
 		n_c += ft_putnbr_unsigned(n % 10);
 	}
-	else if (n >= 0 && n <= 9)
+	else if (n && n <= 9)
 		n_c += ft_putchar(n + '0');
 	return (n_c);
 }
