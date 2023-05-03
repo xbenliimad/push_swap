@@ -32,7 +32,7 @@ static int	ft_custom_atoi(char *str)
 
 void	ft_check_duplicate(t_list **stack, int content)
 {
-	t_list *head;
+	t_list	*head;
 
 	head = *stack;
 	while (head)
@@ -45,14 +45,14 @@ void	ft_check_duplicate(t_list **stack, int content)
 
 void	ft_check_sorted(t_list **stack)
 {
-	t_list *v_stack;
+	t_list	*v_stack;
 	t_list	*head;
 
 	if (!*stack)
 		ft_error();
 	v_stack = ft_dup_stack(*stack);
 	head = v_stack;
-	while(v_stack->next)
+	while (v_stack->next)
 	{
 		if (*(int *)v_stack->content > *(int *)v_stack->next->content)
 		{
@@ -67,11 +67,11 @@ void	ft_check_sorted(t_list **stack)
 
 static void	ft_handle_parsing(int ac, char **av, t_list **stack)
 {
-	t_list *tmp_node;
-	char **split_numbers;
-	int *tmp_nbr;
-	int i;
-	int	j;
+	t_list	*tmp_node;
+	char	**split_numbers;
+	int		*tmp_nbr;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (++i < ac)

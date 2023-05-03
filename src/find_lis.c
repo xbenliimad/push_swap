@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_lis.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/03 23:46:36 by ibenli            #+#    #+#             */
+/*   Updated: 2023/05/04 00:06:35 by ibenli           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	handle_lis_middle_case(t_list *to_modify, t_list *prev, int value)
@@ -23,8 +35,8 @@ void	handle_middle_max_case(t_list **stack, t_list *tmp_stack,
 		ft_add_lis(stack, duped);
 	}
 	else
-		handle_lis_middle_case(ft_go_to_index(*stack, stack_info[0]
-					+ 1)->content, tmp_stack->content, value);
+		handle_lis_middle_case(ft_go_to_index(*stack, stack_info[0]+ 1)->content,
+		 tmp_stack->content, value);
 }
 
 void	ft_handle_lis(t_list **stack, int value)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_lis_utils.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/03 23:45:17 by ibenli            #+#    #+#             */
+/*   Updated: 2023/05/03 23:45:18 by ibenli           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_list	*ft_dup_stack(t_list *stack)
@@ -72,7 +84,7 @@ void	ft_push_subsequence(t_list **stack, int value)
 
 t_list	*ft_go_to_index(t_list *list, int index)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < index)

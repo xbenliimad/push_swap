@@ -38,7 +38,7 @@ int	ft_abs(int value)
 void	ft_free_double_array(char **ptr)
 {
 	int	i;
-	
+
 	i = 0;
 	while (ptr[i])
 		free(ptr[i++]);
@@ -47,9 +47,10 @@ void	ft_free_double_array(char **ptr)
 
 void	ft_check_valid_input(char *str, int index)
 {
-	int i;
+	int	i;
 
 	i = index;
-	if ((str[i] && !ft_isdigit(str[i])) || (((str[i - 1] == '-' || str[i - 1] == '+') && !str[i])))
+	if ((str[i] && !ft_isdigit(str[i])) || (((str[i - 1] == '-' || str[i
+					- 1] == '+') && !str[i])))
 		ft_error();
 }

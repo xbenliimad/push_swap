@@ -2,8 +2,7 @@
 
 void	ft_get_info(t_list *a, t_stack_info *a_info)
 {
-
-	int counter;
+	int	counter;
 
 	counter = 0;
 	a_info->len = ft_lstsize(a);
@@ -24,7 +23,6 @@ void	ft_get_info(t_list *a, t_stack_info *a_info)
 	}
 }
 
-
 static int	ft_find_small_big(t_list *stack, int value)
 {
 	int	index;
@@ -34,46 +32,47 @@ static int	ft_find_small_big(t_list *stack, int value)
 	min[1] = -1;
 	while (stack)
 	{
-		if (value < *(int *) stack->content &&  min[1] == -1)
+		if (value < *(int *)stack->content && min[1] == -1)
 		{
-			min[0] = *(int *) stack->content;
+			min[0] = *(int *)stack->content;
 			min[1] = index;
 		}
-		else if (value < *(int *) stack->content && *(int *) stack->content < min[0])
+		else if (value < *(int *)stack->content
+				&& *(int *)stack->content < min[0])
 		{
-			min[0] = *(int *) stack->content;
+			min[0] = *(int *)stack->content;
 			min[1] = index;
 		}
 		stack = stack->next;
 		index++;
 	}
-	return min[1];
+	return (min[1]);
 }
 
-static int find_max(t_list *a, t_stack_info *a_info,int value, int *a_index)
+static int	find_max(t_list *a, t_stack_info *a_info, int value, int *a_index)
 {
-	int 	find_max;
+	int	find_max;
 
 	find_max = 0;
 	if (value > a_info->max || value < a_info->min)
 		find_max = 1;
 	*a_index = 0;
 	while (a)
-    {
+	{
 		if (find_max)
 		{
 			if (*(int *)a->content == a_info->max)
-				break ;	
+				break ;
 		}
 		else
 		{
 			*a_index = ft_find_small_big(a, value);
-			break;
+			break ;
 		}
 		a = a->next;
 		(*a_index)++;
-    }
-    return (find_max);
+	}
+	return (find_max);
 }
 
 int	ft_best_move_b(int b_size, int index)
@@ -87,17 +86,17 @@ int	ft_best_move_b(int b_size, int index)
 	return (b_move);
 }
 
-int ft_best_move_a(t_list *a, t_stack_info *a_info,int value)
+int	ft_best_move_a(t_list *a, t_stack_info *a_info, int value)
 {
-    int     a_index;
-    int     a_move;
+	int	a_index;
+	int	a_move;
 
-	if (find_max(a, a_info,value, &a_index))
+	if (find_max(a, a_info, value, &a_index))
 	{
 		if (a_index + 1 <= (a_info->len - (a_index + 1)))
 			a_move = a_index + 1;
 		else
-			a_move = - (a_info->len - (a_index + 1));
+			a_move = -(a_info->len - (a_index + 1));
 	}
 	else
 	{
@@ -124,12 +123,12 @@ int ft_best_move_a(t_list *a, t_stack_info *a_info,int value)
 // 		if (find_max)
 // 		{
 // 			if (*(int *)a->content == a_info->max)
-// 				break ;	
+// 				break ;
 // 		}
 // 		else
 // 		{
 // 			a_index = ft_find_small_big(a, value);
-// 			break;
+// 			break ;
 // 		}
 // 		a = a->next;
 // 		a_index++;

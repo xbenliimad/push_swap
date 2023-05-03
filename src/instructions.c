@@ -66,7 +66,7 @@ void	ft_swap(t_list **stack, char *cmd)
 
 void	ft_handle_more_instructions(t_list **a, t_list **b, char *cmd)
 {
-	int cmd_len;
+	int	cmd_len;
 
 	cmd_len = ft_strlen(cmd);
 	if (cmd_len == 2 && !ft_strncmp(cmd, "rr", 2))
