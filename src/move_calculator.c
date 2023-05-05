@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_calculator.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/05 21:57:50 by ibenli            #+#    #+#             */
+/*   Updated: 2023/05/05 21:57:51 by ibenli           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_move_calculator(t_list **a, t_list **b, t_stack_info *a_info,
@@ -56,25 +68,6 @@ void	ft_handle_stack_b(t_list **a, t_list **b, int *best_move)
 	}
 }
 
-void	ft_handle_sorting(t_list **a, t_list **b, int best_move[2])
-{
-	while (best_move[0] > 0 && best_move[1] > 0)
-	{
-		ft_handle_instructions(a, b, "rr");
-		best_move[0]--;
-		best_move[1]--;
-	}
-	while (best_move[0] < 0 && best_move[1] < 0)
-	{
-		ft_handle_instructions(a, b, "rrr");
-		best_move[0]++;
-		best_move[1]++;
-	}
-	ft_handle_stack_a(a, b, &best_move[0]);
-	ft_handle_stack_b(a, b, &best_move[1]);
-	ft_handle_instructions(a, b, "pa");
-}
-
 void	ft_handle_final_rotations(t_list **a, t_list **b,
 		t_stack_info *stack_info)
 {
@@ -96,17 +89,21 @@ void	ft_handle_final_rotations(t_list **a, t_list **b,
 	}
 }
 
-void	ft_sort_stack(t_list **a, t_list **b)
+void	ft_handle_sorting(t_list **a, t_list **b, int best_move[2])
 {
-	t_stack_info	a_info;
-	int				best_move[2];
-
-	ft_get_info(*a, &a_info);
-	while (*b)
+	while (best_move[0] > 0 && best_move[1] > 0)
 	{
-		ft_move_calculator(a, b, &a_info, best_move);
-		ft_handle_sorting(a, b, best_move);
-		ft_get_info(*a, &a_info);
+		ft_handle_instructions(a, b, "rr");
+		best_move[0]--;
+		best_move[1]--;
 	}
-	ft_handle_final_rotations(a, b, &a_info);
+	while (best_move[0] < 0 && best_move[1] < 0)
+	{
+		ft_handle_instructions(a, b, "rrr");
+		best_move[0]++;
+		best_move[1]++;
+	}
+	ft_handle_stack_a(a, b, &best_move[0]);
+	ft_handle_stack_b(a, b, &best_move[1]);
+	ft_handle_instructions(a, b, "pa");
 }

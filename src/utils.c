@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 22:43:49 by ibenli            #+#    #+#             */
-/*   Updated: 2023/05/04 14:57:46 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/05/05 21:27:03 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	ft_check_valid_input(char *str, int index, long result)
 		ft_error();
 	i = index;
 	if ((str[i] && !ft_isdigit(str[i])) || (((str[i - 1] == '-' || str[i
-					- 1] == '+') && !str[i])))
+						- 1] == '+') && !str[i])))
+	{
 		ft_error();
+	}
 }

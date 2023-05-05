@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_sorting.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/05 21:47:33 by ibenli            #+#    #+#             */
+/*   Updated: 2023/05/05 21:51:53 by ibenli           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_belongs_to_lis(int value, int *lis)
@@ -16,9 +28,9 @@ int	ft_belongs_to_lis(int value, int *lis)
 
 void	ft_push_nonlis(t_list **a, t_list **b, int *lis)
 {
-	int i;
-	int stack_size;
-	int middle_lis;
+	int	i;
+	int	stack_size;
+	int	middle_lis;
 
 	middle_lis = lis[lis[0] / 2];
 	stack_size = ft_lstsize(*a);
@@ -35,4 +47,19 @@ void	ft_push_nonlis(t_list **a, t_list **b, int *lis)
 		else
 			ft_rotate(a, "ra");
 	}
+}
+
+void	ft_sort_stack(t_list **a, t_list **b)
+{
+	t_stack_info	a_info;
+	int				best_move[2];
+
+	ft_get_info(*a, &a_info);
+	while (*b)
+	{
+		ft_move_calculator(a, b, &a_info, best_move);
+		ft_handle_sorting(a, b, best_move);
+		ft_get_info(*a, &a_info);
+	}
+	ft_handle_final_rotations(a, b, &a_info);
 }

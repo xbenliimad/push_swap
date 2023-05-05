@@ -1,10 +1,22 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructions.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/05 22:01:18 by ibenli            #+#    #+#             */
+/*   Updated: 2023/05/05 22:01:19 by ibenli           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "checker_bonus.h"
 
 void	ft_push_bonus(t_list **src, t_list **dest)
 {
 	t_list	*tmp;
 
-	if (!src)
+	if (!*src)
 		return ;
 	tmp = *src;
 	*src = (*src)->next;
@@ -17,7 +29,7 @@ void	ft_rotate_bonus(t_list **stack)
 	t_list	*tmp;
 	t_list	*last;
 
-	if (!(*stack)->next)
+	if (!(*stack) || !(*stack)->next)
 		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
@@ -48,7 +60,7 @@ void	ft_swap_bonus(t_list **stack)
 	t_list	*first_node;
 
 	first_node = *stack;
-	if (!first_node->next)
+	if (!first_node || !first_node->next)
 		return ;
 	second_node = first_node->next;
 	first_node->next = second_node->next;

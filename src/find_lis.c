@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:46:36 by ibenli            #+#    #+#             */
-/*   Updated: 2023/05/04 00:06:35 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/05/05 21:46:11 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	handle_middle_max_case(t_list **stack, t_list *tmp_stack,
 		ft_add_lis(stack, duped);
 	}
 	else
-		handle_lis_middle_case(ft_go_to_index(*stack, stack_info[0]+ 1)->content,
-		 tmp_stack->content, value);
+		handle_lis_middle_case(ft_go_to_index(*stack, stack_info[0]
+				+ 1)->content, tmp_stack->content, value);
 }
 
 void	ft_handle_lis(t_list **stack, int value)
@@ -93,10 +93,10 @@ int	*ft_find_lis(t_list *stack)
 
 int	*ft_lis_finder(t_list *stack)
 {
-	t_list *tmp_stack;
-	int *lis[2];
-	int *tmp;
-	int stack_size;
+	t_list	*tmp_stack;
+	int		*lis[2];
+	int		*tmp;
+	int		stack_size;
 
 	stack_size = ft_lstsize(stack);
 	tmp_stack = ft_dup_stack(stack);

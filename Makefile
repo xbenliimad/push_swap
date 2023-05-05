@@ -2,9 +2,25 @@ NAME= push_swap
 
 NAME_BONUS= checker
 
-SRC= ${wildcard ./src/*.c}  ${wildcard ./src/**/*.c}
+SRC= ./src/find_lis.c \
+./src/find_lis_utils.c \
+./src/handle_instructions.c \
+./src/handle_small.c \
+./src/handle_sorting.c \
+./src/instructions.c \
+./src/main.c \
+./src/move_calculator.c \
+./src/move_calculator_utils.c \
+./src/parsing.c \
+./src/utils.c
 
-SRC_BONUS= ${wildcard ./bonus/*.c}
+SRC_BONUS= ./bonus/checker_utils.c \
+./bonus/handle_instructions.c \
+./bonus/instructions.c \
+./bonus/main.c \
+./src/utils.c \
+./src/parsing.c \
+./src/find_lis_utils.c
 
 OBJ=$(SRC:%.c=%.o)
 
@@ -12,7 +28,7 @@ OBJ_BONUS=$(SRC_BONUS:%.c=%.o);
 
 INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf
 
-FLAGS= -Wall -Wextra -Werror $(INCLUDES) #-fsanitize=address
+FLAGS= -Wall -Wextra -Werror $(INCLUDES) # -fsanitize=address
 
 CC= cc
 
@@ -22,16 +38,16 @@ CC= cc
 
 all : $(NAME) 
 
+bonus : $(NAME_BONUS)
 
 $(NAME) : $(OBJ) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
 	$(CC) $(FLAGS) $^ -o $@
 
-$(NAME_BONUS) : $(OBJ_BONUS) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
-	$(CC) $(FLAGS) $(OBJ_BONUS) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a -o $@
+$(NAME_BONUS) : ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a $(OBJ_BONUS)
+	$(CC) $(FLAGS) $^ -o $@
 
-bonus : $(NAME_BONUS)
 
-./utils/libft/libft.a : 
+./utils/libft/libft.a :
 	make -C ./utils/libft  bonus
 
 

@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/05 21:48:23 by ibenli            #+#    #+#             */
+/*   Updated: 2023/05/05 21:48:45 by ibenli           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	main(int ac, char **av)
 {
-	t_list *a;
-	t_list *b;
-	int *lis;
+	t_list	*a;
+	t_list	*b;
+	int		*lis;
 
 	a = NULL;
 	b = NULL;
@@ -22,6 +34,5 @@ int	main(int ac, char **av)
 		}
 		ft_lstclear(&a, free);
 	}
-	// system("leaks push_swap");
 	return (0);
 }

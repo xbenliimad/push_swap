@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructions.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/05 21:48:10 by ibenli            #+#    #+#             */
+/*   Updated: 2023/05/05 21:48:11 by ibenli           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_push(t_list **src, t_list **dest, char *cmd)
 {
 	t_list	*tmp;
 
-	if (!src)
+	if (!*src)
 		return ;
 	tmp = *src;
 	*src = (*src)->next;
@@ -19,7 +31,7 @@ void	ft_rotate(t_list **stack, char *cmd)
 	t_list	*tmp;
 	t_list	*last;
 
-	if (!(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
@@ -54,7 +66,7 @@ void	ft_swap(t_list **stack, char *cmd)
 	t_list	*first_node;
 
 	first_node = *stack;
-	if (!first_node->next)
+	if (!first_node || !first_node->next)
 		return ;
 	second_node = first_node->next;
 	first_node->next = second_node->next;
