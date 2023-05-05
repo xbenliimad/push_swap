@@ -19,8 +19,8 @@ int	main(int ac, char **av)
 			ft_push_nonlis(&a, &b, lis);
 			free(lis);
 			ft_sort_stack(&a, &b);
-			ft_lstclear(&a, free);
 		}
+		ft_lstclear(&a, free);
 	}
 	// system("leaks push_swap");
 	return (0);

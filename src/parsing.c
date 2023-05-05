@@ -26,18 +26,20 @@ static int	ft_custom_atoi(char *str)
 		if (result < LONG_MIN)
 			return (0);
 	}
-	ft_check_valid_input(str, i);
+	ft_check_valid_input(str, i, result * sign);
 	return (result * sign);
 }
 
-void	ft_check_duplicate(t_list **stack, int content)
+void	ft_check_duplicate(t_list **stack, long content)
 {
 	t_list	*head;
 
 	head = *stack;
+	if (content > INT_MAX || content < INT_MIN)
+		ft_error();
 	while (head)
 	{
-		if (*(int *)head->content == content)
+		if (*(int *)head->content == (int)content)
 			ft_error();
 		head = head->next;
 	}

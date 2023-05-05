@@ -47,6 +47,6 @@ int	    ft_abs(int value);
 void    ft_clear(void *content);
 void	ft_free_double_array(char **ptr);
 void	ft_error(void);
-void	ft_check_valid_input(char *str, int index);
+void	ft_check_valid_input(char *str, int index, long result);
 
 # endif
